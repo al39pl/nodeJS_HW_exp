@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
@@ -22,6 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
+    "express-qs-parser": "0.0.1",
     "underscore": "^1.8.3",
     "yargs": "^9.0.1"
   }

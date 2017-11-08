@@ -1,8 +1,10 @@
 import app from "./app"
 
-const cookieParser = require("cookie-parser")
-const _ = require("underscore")
+const cookieParser = require("cookie-parser");
+const _ = require("underscore");
+const expressQSParser = require('express-qs-parser');
 const port = process.env.PORT || 8080;
+
 
 let products = [
     {
@@ -25,11 +27,19 @@ let products = [
 
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
-// app.use(express.json())
 
+let qsParserMiddleware = expressQSParser({    
+    params: {     
+        filters: /([\w-_]+)(\>|<|\=|\!=)([\w_-]+)/g, 
+        order: /(-?)([\w\s]+)/
+    },
+    storage: 'parsedQuery' 
+});
 app.use(cookieParser());
+app.use(qsParserMiddleware);
 app.get("/", (req, res)=>{
     console.log("Cookies: ", req.cookies)
+    res.status(200).json(req.parsedQuery);
 })
 
 app.get('/api/products', (req, res)=>{
