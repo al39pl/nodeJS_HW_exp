@@ -22,8 +22,11 @@
   "author": "Alexander Pleshcheev",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-qs-parser": "0.0.1",
+    "jsonwebtoken": "^8.1.0",
+    "passport": "^0.4.0",
     "underscore": "^1.8.3",
     "yargs": "^9.0.1"
   }
